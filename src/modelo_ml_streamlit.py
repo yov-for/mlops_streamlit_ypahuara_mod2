@@ -13,7 +13,7 @@ import matplotlib.pyplot as plt #Para plotear algunas gráficas (Histogramas)
 
 def prediccion_o_inferencia(pipeline_de_test, datos_de_test):
     #Dropeamos
-    datos_de_test.drop('car_ID', axis=1, inplace=True)
+    # datos_de_test.drop('car_ID', axis=1, inplace=True)
     # Cast MSSubClass as object
     # datos_de_test['MSSubClass'] = datos_de_test['MSSubClass'].astype('O')
     # datos_de_test = datos_de_test[config.FEATURES] #Aquí estoy aplicando mi SELECTED FEATURES
