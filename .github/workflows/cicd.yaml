@@ -3,7 +3,7 @@ name: Deploy to Cloud Run
 env:
   SERVICE_NAME: servicio-streamlit-yovani-pahuara-modulo2
   PROJECT_ID: project-mlops-ypahuara
-  DOCKER_IMAGE_URL: us-central1-docker.pkg.dev/project-mlops-ypahuara/repo-mlops12-streamlit-project-mod2/image-v2-deploy-streamlit-cicd
+  DOCKER_IMAGE_URL: us-central1-docker.pkg.dev/project-mlops-ypahuara/repo-mlops12-streamlit-project-mod2/image-v3-deploy-streamlit-cicd
 
 on:
   push:
