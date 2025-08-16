@@ -1,7 +1,7 @@
 debugpy
 numpy
 pandas
-scikit-learn==0.20.0
+scikit-learn
 joblib
 python-multipart
 streamlit
