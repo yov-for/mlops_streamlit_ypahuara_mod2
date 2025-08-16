@@ -28,9 +28,9 @@ def prediccion_o_inferencia(pipeline_de_test, datos_de_test):
     # datos_de_test.dropna(subset=new_vars_with_na, inplace=True)
 
     predicciones = pipeline_de_test.predict(datos_de_test)
-    predicciones_sin_escalar = np.exp(predicciones)
+    # predicciones_sin_escalar = np.exp(predicciones)
 
-    return predicciones, predicciones_sin_escalar, datos_de_test
+    return predicciones, datos_de_test
 
 
 
@@ -63,18 +63,18 @@ if st.sidebar.button("click aqui para enviar el CSV al Pipeline"):
     else:
         with st.spinner('Pipeline y Modelo procesando...'):
 
-            prediccion, prediccion_sin_escalar, datos_procesados = prediccion_o_inferencia(pipeline_de_produccion, df_de_los_datos_subidos)
+            prediccion, datos_procesados = prediccion_o_inferencia(pipeline_de_produccion, df_de_los_datos_subidos)
             time.sleep(5)
             st.success('Listo!')
 
             # Mostramos los resultados de la predicción
             st.write('Resultados de la predicción:')
             st.write(prediccion)
-            st.write(prediccion_sin_escalar)
+            # st.write(prediccion_sin_escalar)
 
             #Graficar los precios de venta predichos
             fig, ax = plt.subplots()
-            pd.Series(np.exp(prediccion)).hist(bins=50, ax=ax)
+            pd.Series((prediccion)).hist(bins=50, ax=ax)
             ax.set_title('Histograma de los precios de venta predichos')
             ax.set_xlabel('Precio')
             ax.set_ylabel('Frecuencia')
@@ -87,7 +87,7 @@ if st.sidebar.button("click aqui para enviar el CSV al Pipeline"):
             #Concatenamos predicciones con el archivo original subido
             df_resultado = datos_procesados.copy()
             df_resultado['Predicción Escalada'] = prediccion
-            df_resultado['Predicción Sin Escalar'] = prediccion_sin_escalar
+            # df_resultado['Predicción Sin Escalar'] = prediccion_sin_escalar
 
             #Mostrar el Dataframe contatenado
             st.write('Datos originales con predicciones:')
