@@ -8,13 +8,7 @@ import numpy as np #Para operaciones matemáticas
 import matplotlib.pyplot as plt #Para plotear algunas gráficas (Histogramas)
 
 #------------------------------------------------------------------------------------------------
-from feature_engine.imputation import CategoricalImputer, MeanMedianImputer, AddMissingIndicator
-from feature_engine.encoding import OrdinalEncoder, RareLabelEncoder
-from sklearn.preprocessing import MinMaxScaler, Binarizer
-from sklearn.pipeline import Pipeline
 
-import input.preprocessors as pp
-from configuraciones import config
 #------------------------------------------------------------------------------------------------
 
 def prediccion_o_inferencia(pipeline_de_test, datos_de_test):
