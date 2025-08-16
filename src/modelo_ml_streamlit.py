@@ -21,17 +21,17 @@ def prediccion_o_inferencia(pipeline_de_test, datos_de_test):
     #Dropeamos
     datos_de_test.drop('Id', axis=1, inplace=True)
     # Cast MSSubClass as object
-    datos_de_test['MSSubClass'] = datos_de_test['MSSubClass'].astype('O')
-    datos_de_test = datos_de_test[config.FEATURES] #Aquí estoy aplicando mi SELECTED FEATURES
+    # datos_de_test['MSSubClass'] = datos_de_test['MSSubClass'].astype('O')
+    # datos_de_test = datos_de_test[config.FEATURES] #Aquí estoy aplicando mi SELECTED FEATURES
 
-    new_vars_with_na = [
-        var for var in config.FEATURES
-        if var not in config.CATEGORICAL_VARS_WITH_NA_FREQUENT +
-        config.CATEGORICAL_VARS_WITH_NA_MISSING +
-        config.NUMERICAL_VARS_WITH_NA
-        and datos_de_test[var].isnull().sum() > 0]
+    # new_vars_with_na = [
+    #     var for var in config.FEATURES
+    #     if var not in config.CATEGORICAL_VARS_WITH_NA_FREQUENT +
+    #     config.CATEGORICAL_VARS_WITH_NA_MISSING +
+    #     config.NUMERICAL_VARS_WITH_NA
+    #     and datos_de_test[var].isnull().sum() > 0]
     
-    datos_de_test.dropna(subset=new_vars_with_na, inplace=True)
+    # datos_de_test.dropna(subset=new_vars_with_na, inplace=True)
 
     predicciones = pipeline_de_test.predict(datos_de_test)
     predicciones_sin_escalar = np.exp(predicciones)
@@ -106,7 +106,7 @@ if st.sidebar.button("click aqui para enviar el CSV al Pipeline"):
             st.download_button(
                 label="Descargar archivo CSV con predicciones",
                 data=csv,
-                file_name='predicciones_casas.csv',
+                file_name='predicciones_autos.csv',
                 mime='text/csv',
             )
             #-------------------------------------------------------------------
