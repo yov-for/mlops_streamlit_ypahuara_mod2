@@ -8,6 +8,8 @@ WORKDIR /usr/src/app
 # install dependencies
 COPY ./requirements.txt ./
 
+RUN sudo apt-get install libgomp1
+
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Set PYTHONPATH to include the src directory
